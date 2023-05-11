@@ -14,5 +14,8 @@
     "./*.js",
     "src/**/*.ts",
     "test/**/*.ts",
+    "src/chat-lib/Speech.js",
+    "src/chat-lib/OpenAI.js",
+    "src/chat-lib/Conversation.js",
   ],
 }
