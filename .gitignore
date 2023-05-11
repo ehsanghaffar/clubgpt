@@ -73,3 +73,5 @@ typings/
 .serverless
 
 dist
+.DS_Store
+__MACOSX_

@@ -1,7 +1,7 @@
 {
-  "name": "express-api-starter-ts",
-  "version": "1.2.0",
-  "description": " A basic starter for an express.js API with Typescript",
+  "name": "clubgpt",
+  "version": "0.0.1",
+  "description": " A chat-bot for chat with ChatGPT designed for using in Clubhouse chat room.",
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -10,11 +10,15 @@
     "lint": "eslint --fix src test",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "CJ R. <cj@null.computer> (https://w3cj.now.sh)",
+  "keywords": [
+    "clubhouse",
+    "chatgpt",
+    "clubgpt"
+  ],
+  "author": "Ehsan Ghaffar. <eindev.dev@gmail.com> (https://ehsanghaffarii.ir)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/w3cj/express-api-starter.git"
+    "url": "https://github.com/ehsanghaffar/clubGPT.git"
   },
   "license": "MIT",
   "dependencies": {

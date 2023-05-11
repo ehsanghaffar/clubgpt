@@ -1,59 +1,53 @@
-# Express API Starter with Typescript
 
-How to use this template:
+# ClubGPT
 
-```sh
-npx create-express-api --typescript --directory my-api-name
+A chatbot that works with GPT Chat for use in Clubhouse software chat rooms.
+
+## Features
+
+- Reusable chat-bot
+- Typescript
+- Dockerize
+- Customizable
+
+## Installation
+
+Install ChartGPT with Yarn
+
+```bash
+  yarn
+  
+  yarn start
 ```
 
-Includes API Server utilities:
+## Documentation
 
-* [morgan](https://www.npmjs.com/package/morgan)
-  * HTTP request logger middleware for node.js
-* [helmet](https://www.npmjs.com/package/helmet)
-  * Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help!
-* [dotenv](https://www.npmjs.com/package/dotenv)
-  * Dotenv is a zero-dependency module that loads environment variables from a `.env` file into `process.env`
-* [cors](https://www.npmjs.com/package/cors)
-  * CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+[Documentation](https://ehsanghaffarii.ir)
 
-Development utilities:
+## Demo
 
-* [typescript](https://www.npmjs.com/package/typescript)
-  * TypeScript is a language for application-scale JavaScript.
-* [ts-node](https://www.npmjs.com/package/ts-node)
-  * TypeScript execution and REPL for node.js, with source map and native ESM support.
-* [nodemon](https://www.npmjs.com/package/nodemon)
-  * nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
-* [eslint](https://www.npmjs.com/package/eslint)
-  * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
-* [typescript-eslint](https://typescript-eslint.io/)
-  * Tooling which enables ESLint to support TypeScript.
-* [jest](https://www.npmjs.com/package/mocha)
-  * Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
-* [supertest](https://www.npmjs.com/package/supertest)
-  * HTTP assertions made easy via superagent.
+Demo [here](chartgpt.eindev.ir)
 
-## Setup
+## Authors
 
-```
-npm install
-```
+- [@ehsanghaffar](https://www.github.com/ehsanghaffar)
 
-## Lint
+## Contributing
 
-```
-npm run lint
-```
+Contributions are always welcome!
 
-## Test
+See `contributing.md` for ways to get started.
 
-```
-npm run test
-```
+Please adhere to this project's `code of conduct`.
 
-## Development
+## License
 
-```
-npm run dev
-```
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Badges
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
