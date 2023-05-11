@@ -3,6 +3,8 @@
 
 A chatbot that works with GPT Chat for use in Clubhouse software chat rooms.
 
+### This repo is under development and may some features not working.
+
 ## Features
 
 - Reusable chat-bot
