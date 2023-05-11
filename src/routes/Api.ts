@@ -1,6 +1,5 @@
 
 import { Router } from 'express';
-import * as expressJwt from 'express-jwt';
 
 import Locals from '../providers/Locals';
 
