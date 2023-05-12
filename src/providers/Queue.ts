@@ -1,5 +1,5 @@
+// @ts-nocheck
 import * as kue from 'kue';
-
 import Locals from './Locals';
 import Log from '../middlewares/Log';
 

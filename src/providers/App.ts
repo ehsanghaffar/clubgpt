@@ -5,16 +5,16 @@ import * as dotenv from 'dotenv';
 import Express from './Express';
 import { Database } from './Database';
 
-import Queue from './Queue';
 import Locals from './Locals';
 import Log from '../middlewares/Log';
+import Queue from './Queue';
 
 class App {
   // Clear the console
   public clearConsole(): void {
     process.stdout.write('\x1B[2J\x1B[0f');
 
-    Queue.dispatch('checkout', { foo: 'bar', fizz: 'buzz' }, function (data) {
+    Queue.dispatch('checkout', { foo: 'bar', fizz: 'buzz' }, function (data: any) {
       console.log('>> here is the data', data);
     });
   }

@@ -1,40 +1,34 @@
-
 import Log from '../middlewares/Log';
-
+// TODO
 class NativeEvent {
   public cluster(_cluster): void {
-    // Catch cluster listening event...
-    _cluster.on('listening', (worker) =>
-      Log.info(`Server :: Cluster with ProcessID '${worker.process.pid}' Connected!`)
+    // Define event listeners
+    const listeners = [
+      { event: 'listening', message: 'Connected' },
+      { event: 'online', message: 'has responded after it was forked' },
+      { event: 'disconnect', message: 'Disconnected' },
+      { event: 'exit', message: 'is Dead with Code' }
+    ];
+
+    // Add event listeners to _cluster
+    listeners.forEach(({ event, message }) =>
+      _cluster.on(event, worker => Log.info(`Server :: Cluster with ProcessID '${worker.process.pid}' ${message}!`))
     );
 
-    // Catch cluster once it is back online event...
-    _cluster.on('online', (worker) =>
-      Log.info(`Server :: Cluster with ProcessID '${worker.process.pid}' has responded after it was forked! `)
-    );
-
-    // Catch cluster disconnect event...
-    _cluster.on('disconnect', (worker) =>
-      Log.info(`Server :: Cluster with ProcessID '${worker.process.pid}' Disconnected!`)
-    );
-
-    // Catch cluster exit event...
-    _cluster.on('exit', (worker, code, signal) => {
-      Log.info(`Server :: Cluster with ProcessID '${worker.process.pid}' is Dead with Code '${code}, and signal: '${signal}'`);
-      // Ensuring a new cluster will start if an old one dies
-      _cluster.fork();
-    });
+    // Ensuring a new cluster will start if an old one dies
+    _cluster.on('exit', (worker, code, signal) => _cluster.fork());
   }
 
   public process(): void {
-    // Catch the Process's uncaught-exception
-    process.on('uncaughtException', (exception) =>
-      Log.error(exception.stack)
-    );
+    // Define process's event listeners
+    const listeners = [
+      { event: 'uncaughtException', logLevel: 'error' },
+      { event: 'warning', logLevel: 'warn' }
+    ];
 
-    // Catch the Process's warning event
-    process.on('warning', (warning) =>
-      Log.warn(warning.stack)
+    // Add listeners to process
+    listeners.forEach(({ event, logLevel }) =>
+      process.on(event, err => Log[logLevel](err.stack))
     );
   }
 }

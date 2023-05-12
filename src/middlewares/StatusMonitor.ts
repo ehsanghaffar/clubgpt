@@ -1,5 +1,5 @@
 import { Application } from 'express';
-import * as expressStatusMonitor from 'express-status-monitor';
+import expressStatusMonitor from 'express-status-monitor';
 
 import Log from './Log';
 import Locals from '../providers/Locals';

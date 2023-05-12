@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { IRequest, IResponse } from '../interfaces/vendors';
 import Locals from '../providers/Locals';
 

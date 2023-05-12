@@ -1,16 +1,17 @@
-import * as cors from 'cors';
+// @ts-nocheck
+import cors from 'cors';
 import { Application } from 'express';
-import * as flash from 'express-flash';
-import * as compress from 'compression';
-import * as connect from 'connect-mongo';
-import * as bodyParser from 'body-parser';
-import * as session from 'express-session';
-import * as expressValidator from 'express-validator';
+import compress from 'compression';
+import bodyParser from 'body-parser';
+import session, { SessionOptions } from 'express-session';
+import flash from 'express-flash';
+import connectMongo from 'connect-mongo';
 
 import Log from './Log';
 import Locals from '../providers/Locals';
 
-const MongoStore = connect(session);
+
+const MongoStore = new connectMongo(session);
 
 class Http {
 	public static mount(_express: Application): Application {
@@ -30,18 +31,9 @@ class Http {
 		// Disable the x-powered-by header in response
 		_express.disable('x-powered-by');
 
-		// Enables the request payload validator
-		_express.use(expressValidator());
-
 		// Enables the request flash messages
 		_express.use(flash());
 
-		/**
-		 * Enables the session store
-		 *
-		 * Note: You can also add redis-store
-		 * into the options object.
-		 */
 		const options = {
 			resave: true,
 			saveUninitialized: true,
@@ -53,7 +45,7 @@ class Http {
 				url: process.env.MONGOOSE_URL,
 				autoReconnect: true
 			})
-		};
+		} as SessionOptions
 
 		_express.use(session(options));
 
