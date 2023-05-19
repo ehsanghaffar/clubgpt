@@ -1,10 +1,10 @@
 import * as os from 'os';
-import * as cluster from 'cluster';
+import cluster from 'cluster';
 
 import App from './providers/App';
 import NativeEvent from './exception/NativeEvent';
 
-if (cluster.Worker) {
+if (cluster.isPrimary) {
   /**
    * Catches the process events
    */
@@ -28,7 +28,7 @@ if (cluster.Worker) {
   /**
    * Fork the process, the number of times we have CPUs available
    */
-  CPUS.forEach(() => cluster.default);
+  CPUS.forEach(() => cluster.isPrimary);
 
   /**
    * Catches the cluster events

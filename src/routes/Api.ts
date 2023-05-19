@@ -6,5 +6,9 @@ const router = Router();
 
 router.get('/', HomeController.index);
 
+router.get('/test', async (req, res) => {
+  res.send("hello")
+})
+
 
 export default router;

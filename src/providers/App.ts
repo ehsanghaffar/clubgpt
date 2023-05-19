@@ -50,10 +50,10 @@ class App {
     const isQueueMonitorEnabled: boolean = Locals.config().queueMonitor;
     const queueMonitorPort: number = Locals.config().queueMonitorHttpPort;
 
-    if (isQueueMonitorEnabled) {
+    if (!isQueueMonitorEnabled) {
       kue.app.listen(queueMonitorPort);
 
-      console.log('\x1b[33m%s\x1b[0m', `Queue Monitor :: Running @ 'http://localhost:${queueMonitorPort}'`);
+      console.log('\x1b[33m%s\x1b[0m', kue.app, `Queue Monitor :: Running @ 'http://localhost:${queueMonitorPort}'`);
     }
   }
 }

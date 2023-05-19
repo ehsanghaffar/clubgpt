@@ -5,13 +5,30 @@ import compress from 'compression';
 import bodyParser from 'body-parser';
 import session, { SessionOptions } from 'express-session';
 import flash from 'express-flash';
-import connectMongo from 'connect-mongo';
+import MongoStore from 'connect-mongo';
 
 import Log from './Log';
 import Locals from '../providers/Locals';
 
+// const MongoStore = new connectMongo(session);
 
-const MongoStore = new connectMongo(session);
+const MONGO_URL = process.env.MONGOOSE_URL
+
+// const mongoClientPromise = new Promise((resolve) => {
+// 	mongoose.connection.on("connected", () => {
+// 		const client = mongoose.connection.getClient();
+// 		resolve(client);
+// 	});
+// });
+
+// const sessionStore = MongoStore.create({
+// 	clientPromise: mongoClientPromise,
+// 	dbName: "myDb",
+// 	collection: "sessions"
+// });
+
+
+
 
 class Http {
 	public static mount(_express: Application): Application {
@@ -42,10 +59,9 @@ class Http {
 				maxAge: 1209600000 // two weeks (in ms)
 			},
 			store: new MongoStore({
-				url: process.env.MONGOOSE_URL,
-				autoReconnect: true
+				mongoUrl: MONGO_URL
 			})
-		} as SessionOptions
+		}
 
 		_express.use(session(options));
 
